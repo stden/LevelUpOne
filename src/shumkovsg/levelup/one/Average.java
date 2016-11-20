@@ -6,9 +6,9 @@ import java.util.Scanner;
 /**
  * Created by sergey on 20.11.16.
  */
-public class SumOfElements {
+public class Average {
     public static void main(String[] args) {
-        System.out.println("Searching sum of numbers in array!");
+        System.out.println("Searching average of array!");
         System.out.print("Enter size of array: ");
 
         Scanner in = new Scanner(System.in);
@@ -25,7 +25,11 @@ public class SumOfElements {
         System.out.println("Your array is:");
         System.out.println(Arrays.toString(array));
 
-        System.out.println("Sum of elements in array is: " + sumOfElements(array));
+        System.out.println("AverageSum of array is: " + averageOfArray(array));
+    }
+
+    private static double averageOfArray(double[] arr) {
+        return sumOfElements(arr) / arr.length;
     }
 
     private static int readArraySize(Scanner in) {
