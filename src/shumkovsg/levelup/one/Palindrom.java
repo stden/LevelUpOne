@@ -7,7 +7,6 @@ import java.util.Scanner;
  */
 public class Palindrom {
     public static void main(String[] args) {
-        // write your code here
         Scanner in = new Scanner(System.in);
         System.out.print("Enter word with five characters: ");
         String word = readConsoleWord(in);
