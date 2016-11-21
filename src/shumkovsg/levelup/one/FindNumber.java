@@ -36,9 +36,10 @@ public class FindNumber {
         }
     }
 
-    private static int findNumber(double[] arr, double num) {
+        private static int findNumber(double[] arr, double num) {
+        final double EPS = 1e-12;
         for (int i = 0; i < arr.length; i++) {
-            if (arr[i] == num) {
+            if (Math.abs(arr[i] - num) < EPS) {
                 return i;
             }
         }

@@ -3,6 +3,7 @@ package shumkovsg.levelup.one;
 import java.util.Arrays;
 import java.util.Scanner;
 
+
 /**
  * Created by sergey on 20.11.16.
  */
@@ -14,18 +15,38 @@ public class Average {
         Scanner in = new Scanner(System.in);
         int arraySize = readArraySize(in);
 
-        double[] array = new double[arraySize];
-
-        System.out.println("Enter elements of array!");
-        for (int i = 0; i < array.length; i++) {
-            System.out.print("Element " + i + " = ");
-            array[i] = readConsoleDouble(in);
-        }
+        double[] array = getDoublesArray(in, arraySize);
 
         System.out.println("Your array is:");
         System.out.println(Arrays.toString(array));
 
-        System.out.println("AverageSum of array is: " + averageOfArray(array));
+        System.out.println("Average of array is: " + averageOfArray(array));
+    }
+
+    private static double[] getDoublesArray(Scanner in, int arraySize) {
+
+        double[] array;
+        System.out.println("Random or not?");
+        System.out.println("1 - Random!");
+        System.out.println("No 1 - Not!");
+        if (readConsoleDouble(in) != 1) {
+
+            array = new double[arraySize];
+
+            System.out.println("Enter elements of array!");
+            for (int i = 0; i < array.length; i++) {
+                System.out.print("Element " + i + " = ");
+                array[i] = readConsoleDouble(in);
+            }
+        } else {
+            System.out.println("Generating random array in [a, b]!");
+            System.out.print("Enter border a: ");
+            double leftBorder = readConsoleDouble(in);
+            System.out.print("Enter border b: ");
+            double rightBorder = readConsoleDouble(in);
+            array = RandomArrayGenerator.randomArrGen(arraySize, leftBorder, rightBorder);
+        }
+        return array;
     }
 
     private static double averageOfArray(double[] arr) {
