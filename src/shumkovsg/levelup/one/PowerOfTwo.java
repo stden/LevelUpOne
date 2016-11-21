@@ -18,11 +18,9 @@ public class PowerOfTwo {
 
     private static long power(int pow) {
         while (true) {
-            if (pow > 0 && pow <= 60) {
-                return 2 << (pow - 1);
-            } else if (pow == 0) {
-                return 2 >> 1;
-            } else {
+            if (pow >= 0 && pow <= 60) {
+                return 1 << pow;
+            }  else {
                 System.out.println("Power must be in [0, 60]! Try again: ");
             }
         }
