@@ -46,15 +46,16 @@ public class QuadraticEquation {
             solvingLinearEquation(b, c);
         } else {
             double discr = b * b - 4.0 * a * c;
-            if (discr < 0) {
-                System.out.println("No radicals!");
-            } else if (discr == 0) {
+            final double EPS = 1e-6;
+            if (Math.abs(discr) < EPS) {
                 System.out.println("Equation has one radical!");
                 System.out.println("x = " + (-b / 2.0 / a));
+            } else if (discr < 0) {
+                System.out.println("No radicals!");
             } else {
                 System.out.println("Equation has two radicals!");
-                System.out.println("x1 = " + ((-b + discr) / 2.0 / a));
-                System.out.println("x2 = " + ((-b - discr) / 2.0 / a));
+                System.out.println("x1 = " + ((-b + Math.sqrt(discr)) / 2.0 / a));
+                System.out.println("x2 = " + ((-b - Math.sqrt(discr)) / 2.0 / a));
             }
         }
     }
