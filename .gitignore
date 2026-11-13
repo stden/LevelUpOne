@@ -1,0 +1,8 @@
+#Байт-код и упакованные архивы
+*.class
+*.jar
+*.war
+*.ear
+out
+#Конфигурационный файл .idea
+.idea/workspace.xml
